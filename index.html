@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Home - Mugodhi Apostolic Faith Church{% endblock %}
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Mugodhi Apostolic Faith Church</h1>
+        <p class="lead">We strive to spread the word of God and support our community.</p>
+        <img src="{{ url_for('static', filename='church.jpg') }}" alt="Church" class="img-fluid">
+    </div>
+    <h2>Upcoming Events</h2>
+    {% for event in events %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ event.title }}</h5>
+                <p class="card-text">{{ event.content }}</p>
+                {% if event.image_file %}
+                    <img src="{{ url_for('static', filename='uploads/images/' ~ event.image_file) }}" alt="Event Image" class="img-fluid">
+                {% endif %}
+                {% if event.video_file %}
+                    <video controls class="img-fluid">
+                        <source src="{{ url_for('static', filename='uploads/videos/' ~ event.video_file) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                {% endif %}
+                <p class="card-text"><small class="text-muted">Posted by {{ event.author.username }} on {{ event.date_posted.strftime('%Y-%m-%d') }}</small></p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+

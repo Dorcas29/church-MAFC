@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background-color: #0056b3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.jumbotron {
+    background-color: #007bff;
+    color: white;
+    padding: 2rem;
+}
+
+.card {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 1rem;
+    }
+
+    .card {
+        margin-bottom: 0.5rem;
+    }
+}
+
